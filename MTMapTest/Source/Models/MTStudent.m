@@ -30,20 +30,32 @@ static int countName = 50;
 
 + (MTStudent *)randomStudent {
     MTStudent *student = [[MTStudent alloc] init];
-    student.title = firstName[arc4random_uniform(countName)];
-    student.subtitle = lastName[arc4random_uniform(countName)];
+    
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", firstName[arc4random_uniform(countName)],
+                                                              lastName[arc4random_uniform(countName)]];
+    
+    student.title = fullName;
+    student.subtitle = [NSString stringWithFormat:@"BD: %lu", (NSUInteger)(arc4random_uniform(40) + 1970)];
     student.latitudeValue = [student randomValueLatitude];
     student.longitudeValue = [student randomValueLongitude];
     
     student.coordinate = CLLocationCoordinate2DMake(student.latitudeValue,
                                                     student.longitudeValue);
+    student.gender = [student randomGender];
 
     return student;
 }
 
+- (BOOL)randomGender {
+    BOOL result = (arc4random_uniform(2000) / 1000) % 2;
+    
+    return result;
+}
+
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ %@; location = {%f ,%f}",self.title,
+    return [NSString stringWithFormat:@"%@ %@; G:%@ location = {%f ,%f}",self.title,
                                                                     self.subtitle,
+                                                                    self.gender ? @"Male":@"Female",
                                                                     self.latitudeValue,
                                                                     self.longitudeValue];
 }

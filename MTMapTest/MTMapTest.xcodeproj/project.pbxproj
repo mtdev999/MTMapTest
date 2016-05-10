@@ -16,6 +16,7 @@
 		1B1853761C982C97003B03BF /* MTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1853751C982C97003B03BF /* MTStudent.m */; };
 		1B1853781C982F08003B03BF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1853771C982F08003B03BF /* MapKit.framework */; };
 		1B18537A1C98760C003B03BF /* logo_roof-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B1853791C98760C003B03BF /* logo_roof-1.png */; };
+		1B18537D1C99276D003B03BF /* MTDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B18537C1C99276D003B03BF /* MTDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		1B1853751C982C97003B03BF /* MTStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStudent.m; sourceTree = "<group>"; };
 		1B1853771C982F08003B03BF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1B1853791C98760C003B03BF /* logo_roof-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo_roof-1.png"; path = "../../Desktop/Кум_Лого/ReadyTemp/logo_roof-1.png"; sourceTree = "<group>"; };
+		1B18537B1C99276D003B03BF /* MTDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailsViewController.h; sourceTree = "<group>"; };
+		1B18537C1C99276D003B03BF /* MTDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 		1B18536D1C982BCC003B03BF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1B18537B1C99276D003B03BF /* MTDetailsViewController.h */,
+				1B18537C1C99276D003B03BF /* MTDetailsViewController.m */,
 				1B18536E1C982BCC003B03BF /* ViewController.h */,
 				1B18536F1C982BCC003B03BF /* ViewController.m */,
 			);
@@ -206,6 +211,7 @@
 				1B1853731C982BCC003B03BF /* ViewController.m in Sources */,
 				1B1853521C9820C4003B03BF /* AppDelegate.m in Sources */,
 				1B1853761C982C97003B03BF /* MTStudent.m in Sources */,
+				1B18537D1C99276D003B03BF /* MTDetailsViewController.m in Sources */,
 				1B18534F1C9820C4003B03BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,10 +11,12 @@
 #import <MapKit/MapKit.h>
 
 #import "MTStudent.h"
+#import "MTDetailsViewController.h"
 
-@interface ViewController () <MKMapViewDelegate>
+@interface ViewController () <MKMapViewDelegate, MTDetailsViewControllerDelegate>
 @property (nonatomic, strong)   NSArray     *studentsArray;
 @property (nonatomic, assign)   NSUInteger  indexObject;
+
 
 @end
 
@@ -76,7 +78,7 @@
 #pragma mark -
 #pragma mark MKMapViewDelegate
 
-- (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -88,8 +90,16 @@
     if (!pin) {
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
         pin.pinTintColor = [UIColor purpleColor];
+        
         pin.animatesDrop = YES;
         pin.canShowCallout = YES;
+        
+        if ([pin.annotation isKindOfClass:[MTStudent class]]) {
+            if ([(MTStudent*)annotation gender]) {
+                pin.image = [UIImage imageNamed:@"logo_roof-1"];
+            }
+        }
+        
         pin.draggable = YES;
         pin.rightCalloutAccessoryView = [self calloutImage];
     } else {
@@ -99,14 +109,48 @@
     return pin;
 }
 
-- (UIView *)calloutImage {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+//{
+//    [mapView deselectAnnotation:view.annotation animated:YES];
+//    
+//    
+//    
+//}
 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoDark];
+- (UIView *)calloutImage {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 30)];
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
 
     [view addSubview:button];
     
+    [button addTarget:self action:@selector(actionInfo:) forControlEvents:UIControlEventTouchUpInside];
+    self.infoButton = button;
+    
     return view;
+}
+
+- (void)actionInfo:(UIButton *)sender {
+    
+    NSLog(@"info action");
+    
+    MTDetailsViewController *dvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MTDetailsViewController"];
+    dvc.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dvc];
+    
+    navController.modalPresentationStyle = UIModalPresentationPopover;
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    UIPopoverPresentationController *popController = [navController popoverPresentationController];
+    popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    popController.sourceView = self.infoButton;
+    //popController.sourceRect = CGRectMake(30, 50, 10, 10);;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        
+    }
+
 }
 
 #pragma mark -

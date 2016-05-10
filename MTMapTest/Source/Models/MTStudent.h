@@ -17,6 +17,7 @@
 @property (nonatomic, copy)     NSString    *subtitle;
 @property (nonatomic, assign)     double    latitudeValue;
 @property (nonatomic, assign)     double    longitudeValue;
+@property (nonatomic, assign)     BOOL      gender;
 
 + (MTStudent *)randomStudent;
 

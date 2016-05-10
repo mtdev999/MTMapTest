@@ -11,7 +11,8 @@
 @class MKMapView;
 
 @interface ViewController : UIViewController
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet  MKMapView   *mapView;
+@property (strong, nonatomic)           UIButton    *infoButton;
 
 
 @end

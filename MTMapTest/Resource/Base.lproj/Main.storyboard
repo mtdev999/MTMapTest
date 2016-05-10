@@ -57,5 +57,39 @@
             </objects>
             <point key="canvasLocation" x="170" y="96"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="bNN-Uf-dRM">
+            <objects>
+                <viewController storyboardIdentifier="MTDetailsViewController" id="TWN-tU-Rpw" customClass="MTDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hLz-s3-ZRu"/>
+                        <viewControllerLayoutGuide type="bottom" id="kJg-hm-11L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="61e-nv-L3n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iS-3n-buL">
+                                <rect key="frame" x="215" y="279" width="171" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="8wu-nx-AEt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1iS-3n-buL" firstAttribute="centerY" secondItem="61e-nv-L3n" secondAttribute="centerY" id="Eme-gN-akI"/>
+                            <constraint firstItem="1iS-3n-buL" firstAttribute="top" secondItem="hLz-s3-ZRu" secondAttribute="bottom" constant="259" id="dPj-kp-wa1"/>
+                            <constraint firstItem="1iS-3n-buL" firstAttribute="centerX" secondItem="61e-nv-L3n" secondAttribute="centerX" id="rBd-4I-tjB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EEL-Dr-Wco" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="96"/>
+        </scene>
     </scenes>
 </document>
